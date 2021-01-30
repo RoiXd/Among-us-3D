@@ -30,8 +30,8 @@ public class Control : MonoBehaviour {
 		motor.rotate (rotation);
 		//calcul du rotation de Camera
 		float xRot = Input.GetAxisRaw ("Mouse Y");
-
-		Vector3 CameraRotation = new Vector3 (xRot, 0, 0);
-		//motor.rotateCamera (CameraRotation);
+		Mathf.Clamp(xRot, -60, 70);
+		Vector3 CameraRotation = new Vector3 (xRot, 0, 0) * mouseSensibility;
+		motor.rotateCamera (CameraRotation);
 	}
 }
